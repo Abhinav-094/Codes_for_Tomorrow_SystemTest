@@ -147,14 +147,14 @@ const PostCard = React.memo(({ post }) => {
   };
 
   return (
-    <div className="bg-white p-6 shadow-xl rounded-xl transition transform hover:scale-[1.02] border-t-4 border-indigo-500 flex flex-col justify-between h-full">
+    <div className="post-card transition transform hover:scale-[1.02] border-t-4 border-indigo-500 flex flex-col justify-between h-full">
       <div className="flex-grow">
         <h3 className="text-xl font-bold text-gray-800 mb-2 truncate">
           {post.title}
         </h3>
         <p className="text-sm text-gray-600 line-clamp-3">{post.body}</p>
       </div>
-      <div className="mt-4 flex justify-between items-center">
+      <div className="post-footer items-center">
         <span className="text-xs font-mono text-indigo-400 bg-indigo-50 px-2 py-0.5 rounded-full">
           ID: {post.id}
         </span>
@@ -214,7 +214,7 @@ const PostList = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="post-grid">
       {currentCards.map((post) => (
         <PostCard key={post.id} post={post} />
       ))}
