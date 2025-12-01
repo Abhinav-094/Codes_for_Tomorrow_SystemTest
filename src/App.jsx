@@ -1,3 +1,4 @@
+import "./App.css"
 import React, {
   createContext,
   useContext,
@@ -7,18 +8,16 @@ import React, {
   useMemo,
 } from "react";
 
-// --- 1. Constants and Initial State ---
 const POST_API_URL = "https://jsonplaceholder.typicode.com/posts";
 const PAGE_SIZE = 6;
 const INITIAL_STATE = {
-  allPosts: [], // The full list of fetched posts (immutable after fetch)
-  removedPostIds: new Set(), // Set of IDs of posts removed by the user
-  currentPage: 1, // Current page number (1-indexed)
+  allPosts: [],
+  removedPostIds: new Set(), 
+  currentPage: 1, 
   isLoading: true,
   error: null,
 };
 
-// --- 2. Reducer and Actions ---
 const ACTION_TYPES = {
   SET_POSTS: "SET_POSTS",
   REMOVE_POST: "REMOVE_POST",
@@ -46,7 +45,7 @@ function postReducer(state, action) {
       return {
         ...state,
         removedPostIds: newRemovedIds,
-     
+       
       };
     case ACTION_TYPES.SET_PAGE:
       return { ...state, currentPage: action.payload };
@@ -109,7 +108,7 @@ const PostProvider = ({ children }) => {
         }
       };
       fetchData();
-    }, 5000); 
+    }, 5000);
 
     return () => clearTimeout(loadingTimer);
   }, []);
